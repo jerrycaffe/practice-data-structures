@@ -6,6 +6,8 @@ public class SinglyLinkedListImpl {
         sll.add(20);
         sll.add(30);
 
-        System.out.println(sll.getLast());
+        sll.insert(1, 300);
+        System.out.println(sll.getSinglyList(2));
+//        sll.displaySinglyList();
     }
 }
