@@ -193,4 +193,28 @@ public class SinglyLinkedList extends Node {
         return false;
 
     }
+
+    //    13 -> 27 -> 32 -> 71
+//    13 <- 27 <- 32 <- 71
+//    while the next of current is not null
+//    set next of current to a temp variable
+//set next of current to previous
+//    set current to temp
+//
+//
+    public void reverse() {
+        Node current = this.head;
+        Node prev = null;
+        Node temp = null;
+
+        while (current != null) {
+            temp = current.next;
+            current.next = prev;
+            prev = current;
+            current = temp;
+        }
+        Node tempHead = this.head;
+        this.head = this.tail;
+        this.tail = tempHead;
+    }
 }
