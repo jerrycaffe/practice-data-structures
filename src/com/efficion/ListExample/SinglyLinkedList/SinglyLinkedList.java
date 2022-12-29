@@ -1,10 +1,10 @@
 package com.efficion.ListExample.SinglyLinkedList;
 
 public class SinglyLinkedList extends Node {
-    private Node head;
-    private Node tail;
+    public Node head;
+    public Node tail;
 
-    SinglyLinkedList() {
+    public SinglyLinkedList() {
         super(0);
         this.head = null;
         this.tail = null;
@@ -191,6 +191,16 @@ public class SinglyLinkedList extends Node {
             count++;
         }
         return false;
+
+    }
+
+    public void emptyList() {
+        if (this.head == null && this.tail == null) {
+            System.out.println("Linst is emptied");
+        } else {
+            head = null;
+            tail = null;
+        }
 
     }
 

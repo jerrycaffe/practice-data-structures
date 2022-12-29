@@ -106,12 +106,98 @@ public class DoublyLinkedList {
         if (this.head == null) {
             this.head = newNode;
             this.tail = newNode;
-        }else {
+        } else {
             Node oldHead = this.head;
             oldHead.prev = newNode;
             newNode.next = oldHead;
             this.head = newNode;
         }
+    }
+
+    public Integer get(int index) {
+        Node current = this.head;
+        int count = 0;
+        while (current != null) {
+            if (count == index) {
+                return current.data;
+            } else {
+                current = current.next;
+            }
+            count++;
+
+        }
+        return null;
+    }
+
+    public Integer set(int value, int index) {
+        Node current = this.head;
+        int count = 0;
+        while (current != null) {
+            if (count == index) {
+                int removedValue = current.data;
+                current.data = value;
+                return removedValue;
+            } else {
+                current = current.next;
+            }
+            count++;
+        }
+        return null;
+    }
+
+    /**
+     * Insert
+     * Step 1: if the index is less than zero or greater than or equal to the length return null
+     * Step 2: if the index is 0 use unshift
+     * if the index is the same as the length, push
+     * use the get method to access the index-1
+     * set the next and prev properties
+     * Return true
+     */
+
+    public boolean insert(int index, int value) {
+        if (index < 0) return false;
+        if (index == 0) {
+            addFirst(value);
+            return true;
+        }
+        ;
+        int count = 0;
+        Node current = this.head;
+        while (current != null) {
+            if (index == count) {
+                Node newNode = new Node(value);
+                Node prev = current.prev;
+                prev.next = newNode;
+                newNode.prev = prev;
+                newNode.next = current;
+                current.prev = newNode;
+                return true;
+
+            }
+            count++;
+            current = current.next;
+        }
+        return false;
+    }
+
+    public Integer remove(int index) {
+        if (index < 0) return null;
+        if (index == 0) return removeFirst();
+        int count = 0;
+        Node current = this.head;
+        while (current.next != null) {
+            if (index == count) {
+                Node prev = current.prev;
+                Node nextNode = current.next;
+                prev.next = nextNode;
+                nextNode.prev = prev;
+                return current.data;
+            }
+            count++;
+            current = current.next;
+        }
+        return null;
     }
 
     public void display() {
