@@ -22,9 +22,7 @@ public class StackLinkedList {
     //    Pop
     public int pop() {
         if (isEmpty()) return -1;
-        int result = linkedList.getSinglyList(0);
-        linkedList.removeFirstSinglyList();
-        return result;
+        return linkedList.removeFirstSinglyList();
     }
 
     public int peek() {

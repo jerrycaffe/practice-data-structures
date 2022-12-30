@@ -2,8 +2,13 @@ package com.efficion.ListExample.queue;
 
 public class QueueImple {
     public static void main(String[] args) {
-        CircularArrayQueue cqa = new CircularArrayQueue(3);
+        QueueLinkedList qll = new QueueLinkedList();
 
-        System.out.println(cqa.isFull());
+        qll.enqueue(10);
+        qll.enqueue(20);
+        qll.enqueue(30);
+        qll.deleteQueue();
+        System.out.println(qll.deQueue());
+
     }
 }

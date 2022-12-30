@@ -64,8 +64,8 @@ public class SinglyLinkedList extends Node {
      * step 3: if after looping through and no index is found return null
      */
 
-    public Integer getSinglyList(int index) {
-        if (index < 0 || this.head == null) return null;
+    public int getSinglyList(int index) {
+        if (index < 0 || this.head == null) return -1;
         int count = 0;
         Node current = this.head;
         while (current != null) {
@@ -75,7 +75,7 @@ public class SinglyLinkedList extends Node {
             count++;
             current = current.next;
         }
-        return null;
+        return -1;
 
     }
 
@@ -119,14 +119,17 @@ public class SinglyLinkedList extends Node {
      * step 2: if head and tail are the same it means that is the only node so set it to null
      * step 3: else set new add to the next head
      */
-    public void removeFirstSinglyList() {
-        if (head == null) return;
+    public int removeFirstSinglyList() {
+        int deletedValue = -1;
+        if (head == null) return deletedValue;
+        deletedValue = this.head.data;
         if (head == tail) {
             this.head = null;
             this.tail = null;
         } else {
             this.head = head.next;
         }
+        return deletedValue;
     }
 
     public Node removeLast() {
@@ -172,15 +175,16 @@ public class SinglyLinkedList extends Node {
         if (index < 0) return false;
         if (index == 0) {
             addFirstSinglyList(data);
-            return false;
+            return true;
         }
-        ;
         Node newNode = new Node(data);
         Node prev = this.head;
         Node current = this.head;
-        int count = 0;
 
+
+        int count = 0;
         while (current != null) {
+
             if (index == count) {
                 prev.next = newNode;
                 newNode.next = current;
