@@ -36,23 +36,27 @@ public class SameArraySquared {
     }
 
     ;
-
+private static Integer squared(Integer a, Integer b){
+    return a*b;
+}
     public static boolean frequencyCounter(ArrayList<Integer> arr1, ArrayList<Integer> arr2) {
         if (arr1.size() != arr2.size()) return false;
         HashMap<Integer, Integer> map = new HashMap<>();
         for (Integer value : arr1) {
-            if (map.containsKey(value * value)) {
-                var newValue = map.get(value * value) + 1;
-                map.put(value * value, newValue);
+            var square = squared(value, value);
+            if (map.containsKey(square)) {
+                var newValue = map.get(square) + 1;
+                map.put(square, newValue);
             } else {
-                map.put(value * value, 1);
+                map.put(square, 1);
             }
 
         }
 
         for (int value : arr1) {
-            if (!map.containsKey(value * value)) return false;
-            var updatedValue = map.get(value*value) -1;
+            var square = squared(value, value);
+            if (!map.containsKey(square)) return false;
+            var updatedValue = map.get(square) -1;
             if(updatedValue < 0) return false;
         }
 
