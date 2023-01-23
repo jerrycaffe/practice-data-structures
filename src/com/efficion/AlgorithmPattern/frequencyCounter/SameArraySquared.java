@@ -33,10 +33,12 @@ public class SameArraySquared {
             }
         }
         return arr2.size() == 0;
-    }
+    };
 
-    ;
-private static Integer squared(Integer a, Integer b){
+    /*
+    An improved solution to the algorithmic problem
+     */
+    private static Integer squared(Integer a, Integer b){
     return a*b;
 }
     public static boolean frequencyCounter(ArrayList<Integer> arr1, ArrayList<Integer> arr2) {
