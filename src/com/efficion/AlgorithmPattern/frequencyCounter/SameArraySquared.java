@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /*
+* Naive solution just a quick soution that comes to head and not optimal becuase it is usually verbose
  * Write a function called same, which accepts two arrays.
  * The function should return trye if every value in the array has its corresponding value
  * squared in the second array. The frequency of values must be the same
